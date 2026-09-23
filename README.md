@@ -5,9 +5,8 @@
 ## 用法
 
 ```bash
-npm create github:lapintool/create-lapstyle my-app
-pnpm create github:lapintool/create-lapstyle my-app
-yarn create github:lapintool/create-lapstyle my-app
+npm create https://github.com/lapintool/lapstyle my-app
+pnpm dlx https://github.com/lapintool/create-lapstyle my-app
 ```
 
 然后：
@@ -18,11 +17,11 @@ pnpm install
 pnpm dev
 ```
 
-`pnpm`、`npm`、`yarn` 都可以。`<目录>` 必须是空目录，或尚不存在。
+`<目录>` 必须是空目录，或尚不存在。安装依赖时 `pnpm`、`npm`、`yarn` 都可以。
 
 生成结果：
 
-- 依赖 `github:lapintool/lapstyle#v0.4.1-alpha`
+- 依赖 `git+https://github.com/lapintool/lapstyle.git#v0.4.1-alpha`
 - `src/main.ts` 引入 `lapstyle/index.css`，并调用 `enhance(document)`
 - `index.html` 默认 `data-theme="dark"`
 
@@ -36,12 +35,15 @@ pnpm dev
 
 把文件放进 `src/`，在 `App.vue` 里引用。样式只在 `main.ts` 引一次。对话框示例用 `open` 控制显隐。
 
-以后如果包发到 npm，同一条命令会变成 `npm init lapstyle` / `pnpm create lapstyle` / `yarn create lapstyle`。
+`npm create` 会把仓库名改成 `create-<仓库名>`，所以上面写的是 `.../lapstyle`，实际拉取的是 `create-lapstyle`。地址用 HTTPS，避免走 `git@github.com`。`pnpm create` 会给整个参数加 `create-` 前缀，所以 pnpm 用 `dlx`，并写全 `create-lapstyle`。
+
+以后如果包发到 npm，命令会变成 `npm init lapstyle` / `pnpm create lapstyle`。
 
 ## English
 
 ```bash
-npm create github:lapintool/create-lapstyle my-app
+npm create https://github.com/lapintool/lapstyle my-app
+pnpm dlx https://github.com/lapintool/create-lapstyle my-app
 ```
 
 This scaffolds Vite + Vue with `lapstyle/index.css` and `enhance(document)` already wired. Paste a component from the official demo’s **Copy example** button into `src/`. Do not paste the Playground preview, which rewrites imports to virtual files.

@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "lapstyle": "github:lapintool/lapstyle#v0.4.1-alpha",
+    "lapstyle": "git+https://github.com/lapintool/lapstyle.git#v0.4.1-alpha",
     "vue": "^3.5.13"
   },
   "devDependencies": {

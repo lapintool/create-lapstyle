@@ -8,12 +8,11 @@ const templateDir = join(here, "template");
 
 function usage() {
   console.log(`用法：
-  npm create github:lapintool/create-lapstyle <目录>
-  pnpm create github:lapintool/create-lapstyle <目录>
-  yarn create github:lapintool/create-lapstyle <目录>
+  npm create https://github.com/lapintool/lapstyle <目录>
+  pnpm dlx https://github.com/lapintool/create-lapstyle <目录>
 
 示例：
-  npm create github:lapintool/create-lapstyle my-app
+  npm create https://github.com/lapintool/lapstyle my-app
 `);
 }
 
