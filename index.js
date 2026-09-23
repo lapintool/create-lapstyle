@@ -40,7 +40,7 @@ const appName = rawName.toLowerCase().replace(/[^a-z0-9-_]/g, "-").replace(/^-+|
 mkdirSync(target, { recursive: true });
 cpSync(templateDir, target, { recursive: true });
 
-for (const rel of ["package.json", "index.html", "README.md", "src/App.vue"]) {
+for (const rel of ["package.json", "index.html", "README.md", "README.zh.md", "src/App.vue"]) {
   const filePath = join(target, rel);
   const text = readFileSync(filePath, "utf8").replaceAll("__APP_NAME__", appName);
   writeFileSync(filePath, text);

@@ -1,15 +1,17 @@
 # create-lapstyle
 
-生成一个已经接好 [Lapstyle](https://github.com/lapintool/lapstyle) 的 Vite + Vue 应用。库还没发布到 npm，所以从 GitHub 拉这个脚手架。
+Scaffold a Vite + Vue app that already uses [Lapstyle](https://github.com/lapintool/lapstyle). The library is not on npm yet, so this starter is installed from GitHub.
 
-## 用法
+中文说明：[README.zh.md](./README.zh.md)
+
+## Usage
 
 ```bash
 npm create https://github.com/lapintool/lapstyle my-app
 pnpm dlx https://github.com/lapintool/create-lapstyle my-app
 ```
 
-然后：
+Then:
 
 ```bash
 cd my-app
@@ -17,33 +19,24 @@ pnpm install
 pnpm dev
 ```
 
-`<目录>` 必须是空目录，或尚不存在。安装依赖时 `pnpm`、`npm`、`yarn` 都可以。
+`<dir>` must be missing or empty. `pnpm`, `npm`, or `yarn` can install dependencies inside the app.
 
-生成结果：
+`npm create` rewrites the repository name to `create-<name>`, so the npm command uses `.../lapstyle` and still clones `create-lapstyle`. The URL is HTTPS, so git does not use `git@github.com`. `pnpm create` prefixes the whole argument with `create-`, so pnpm uses `dlx` and the full `create-lapstyle` name.
 
-- 依赖 `git+https://github.com/lapintool/lapstyle.git#v0.4.1-alpha` 和 `vue-router`
-- 左侧菜单、右侧按钮示例。清单在 `src/views.ts`
-- `src/main.ts` 引入 `lapstyle/index.css`，并调用 `enhance(document)`
-- `index.html` 默认 `data-theme="dark"`
+After an npm publish, the commands become `npm init lapstyle` and `pnpm create lapstyle`.
 
-## 加一页并贴示例
+## What you get
+
+- Dependency `git+https://github.com/lapintool/lapstyle.git#v0.4.1-alpha` and `vue-router`
+- A sidebar and a button page. Both the menu and the routes read `src/views.ts`
+- `src/main.ts` imports `lapstyle/index.css` and calls `enhance(document)`
+- `index.html` defaults to `data-theme="dark"`
+
+## Add a page and paste an example
 
 ```bash
 pnpm add-view Expand
 pnpm add-view Expand 展开面板
 ```
 
-新建 `src/views/ExpandView.vue`，侧栏多一项。页面是空的。打开官网组件页，点**复制示例**，覆盖这个文件，或把 template 内容贴进根节点。不要贴 Playground 里的 `./lapstyle.js`。
-
-`npm create` 会把仓库名改成 `create-<仓库名>`，所以上面写的是 `.../lapstyle`，实际拉取的是 `create-lapstyle`。地址用 HTTPS，避免走 `git@github.com`。`pnpm create` 会给整个参数加 `create-` 前缀，所以 pnpm 用 `dlx`，并写全 `create-lapstyle`。
-
-以后如果包发到 npm，命令会变成 `npm init lapstyle` / `pnpm create lapstyle`。
-
-## English
-
-```bash
-npm create https://github.com/lapintool/lapstyle my-app
-pnpm dlx https://github.com/lapintool/create-lapstyle my-app
-```
-
-This scaffolds Vite + Vue with a sidebar, a button page, and `enhance(document)` already wired. Add an empty page with `pnpm add-view Expand`, then paste the official demo’s **Copy example** into that file. Do not paste the Playground preview.
+This creates `src/views/ExpandView.vue` and a sidebar item. The page is empty. On the official demo, use **Copy example**, then overwrite that file or paste the template contents into its root. Do not paste the Playground editor. Its `./lapstyle.js` exists only for the preview.
