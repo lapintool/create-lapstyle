@@ -1,32 +1,25 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
-import { enhance } from "lapstyle";
-
-const root = ref<HTMLElement | null>(null);
-
-onMounted(() => {
-  if (root.value) enhance(root.value);
-});
+// LapstyleVue is registered in main.ts — use <ls-btn> tags directly.
 </script>
 
 <template>
-  <div ref="root" class="page">
+  <div class="page">
     <section class="row">
       <div class="row__label">标准</div>
       <div class="row__body">
-        <button type="button" class="ls-btn">默认</button>
-        <button type="button" class="ls-btn blue">Blue</button>
-        <button type="button" class="ls-btn cyan">Cyan</button>
-        <button type="button" class="ls-btn" disabled>禁用</button>
+        <ls-btn>默认</ls-btn>
+        <ls-btn color="blue">Blue</ls-btn>
+        <ls-btn color="cyan">Cyan</ls-btn>
+        <ls-btn disabled>禁用</ls-btn>
       </div>
     </section>
     <section class="row">
       <div class="row__label">实心 / 尺寸</div>
       <div class="row__body">
-        <button type="button" class="ls-btn fill blue">实心</button>
-        <button type="button" class="ls-btn flat">扁平</button>
-        <button type="button" class="ls-btn sm">小</button>
-        <button type="button" class="ls-btn lg blue">大</button>
+        <ls-btn color="blue" variant="fill">实心</ls-btn>
+        <ls-btn variant="flat">扁平</ls-btn>
+        <ls-btn size="sm">小</ls-btn>
+        <ls-btn color="blue" size="lg">大</ls-btn>
       </div>
     </section>
   </div>

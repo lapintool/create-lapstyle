@@ -67,19 +67,12 @@ console.log(`已添加 /${name}
 
 function vueFile() {
   return `<script setup lang="ts">
-import { onMounted, ref } from "vue";
-import { enhance } from "lapstyle";
-
-const root = ref<HTMLElement | null>(null);
-
-onMounted(() => {
-  if (root.value) enhance(root.value);
-});
+// LapstyleVue is registered in main.ts — paste <ls-*> markup from the docs.
 </script>
 
 <template>
-  <div ref="root" class="page">
-    <!-- 用官网「复制示例」覆盖本文件，或把 template 内容贴进这个根节点。 -->
+  <div class="page">
+    <!-- Overwrite this file with the official demo 「Copy example」, or paste Vue tags here. -->
   </div>
 </template>
 `;

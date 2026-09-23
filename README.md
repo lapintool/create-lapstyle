@@ -27,10 +27,11 @@ After an npm publish, the commands become `npm init lapstyle` and `pnpm create l
 
 ## What you get
 
-- Dependency `git+https://github.com/lapintool/lapstyle.git#v0.4.1-alpha` and `vue-router`
+- Dependency `git+https://github.com/lapintool/lapstyle.git#v0.5.0-alpha` and `vue-router`
 - A sidebar and a button page. Both the menu and the routes read `src/views.ts`
-- `src/main.ts` imports `lapstyle/index.css` and calls `enhance(document)`
-- `index.html` defaults to `data-theme="dark"`
+- `src/main.ts` imports `lapstyle/index.css`, registers `LapstyleVue`, and calls `enhance(document)` for shell chrome
+- Button page uses `<ls-btn>`; `index.html` defaults to `data-theme="dark"`
+- `AGENTS.md` points coding agents at `node_modules/lapstyle/docs/llms.txt`
 
 ## Add a page and paste an example
 
