@@ -21,19 +21,19 @@ pnpm dev
 
 生成结果：
 
-- 依赖 `git+https://github.com/lapintool/lapstyle.git#v0.4.1-alpha`
+- 依赖 `git+https://github.com/lapintool/lapstyle.git#v0.4.1-alpha` 和 `vue-router`
+- 左侧菜单、右侧按钮示例。清单在 `src/views.ts`
 - `src/main.ts` 引入 `lapstyle/index.css`，并调用 `enhance(document)`
 - `index.html` 默认 `data-theme="dark"`
 
-## 贴示例
+## 加一页并贴示例
 
-打开 [lapstyle-ui](https://github.com/lapintool/lapstyle) 官网的组件页，点该行的**复制示例**。剪贴板里是一份 Vue 单文件组件：
+```bash
+pnpm add-view Expand
+pnpm add-view Expand 展开面板
+```
 
-- `import { enhance } from "lapstyle"`
-- 挂载后对组件根节点调用 `enhance`
-- 不包含 Playground 里的 `./lapstyle.js`、`./lapstyle.css`
-
-把文件放进 `src/`，在 `App.vue` 里引用。样式只在 `main.ts` 引一次。对话框示例用 `open` 控制显隐。
+新建 `src/views/ExpandView.vue`，侧栏多一项。页面是空的。打开官网组件页，点**复制示例**，覆盖这个文件，或把 template 内容贴进根节点。不要贴 Playground 里的 `./lapstyle.js`。
 
 `npm create` 会把仓库名改成 `create-<仓库名>`，所以上面写的是 `.../lapstyle`，实际拉取的是 `create-lapstyle`。地址用 HTTPS，避免走 `git@github.com`。`pnpm create` 会给整个参数加 `create-` 前缀，所以 pnpm 用 `dlx`，并写全 `create-lapstyle`。
 
@@ -46,4 +46,4 @@ npm create https://github.com/lapintool/lapstyle my-app
 pnpm dlx https://github.com/lapintool/create-lapstyle my-app
 ```
 
-This scaffolds Vite + Vue with `lapstyle/index.css` and `enhance(document)` already wired. Paste a component from the official demo’s **Copy example** button into `src/`. Do not paste the Playground preview, which rewrites imports to virtual files.
+This scaffolds Vite + Vue with a sidebar, a button page, and `enhance(document)` already wired. Add an empty page with `pnpm add-view Expand`, then paste the official demo’s **Copy example** into that file. Do not paste the Playground preview.

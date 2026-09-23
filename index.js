@@ -40,7 +40,7 @@ const appName = rawName.toLowerCase().replace(/[^a-z0-9-_]/g, "-").replace(/^-+|
 mkdirSync(target, { recursive: true });
 cpSync(templateDir, target, { recursive: true });
 
-for (const rel of ["package.json", "index.html", "README.md"]) {
+for (const rel of ["package.json", "index.html", "README.md", "src/App.vue"]) {
   const filePath = join(target, rel);
   const text = readFileSync(filePath, "utf8").replaceAll("__APP_NAME__", appName);
   writeFileSync(filePath, text);
@@ -53,6 +53,7 @@ console.log(`已创建 ${target}
   pnpm install
   pnpm dev
 
-src/main.ts 已经引入 lapstyle/index.css，并调用 enhance(document)。
-官网示例的「复制示例」得到的 Vue 组件可以直接放进 src/。
+打开后是按钮页，左侧菜单来自 src/views.ts。
+新页面：pnpm add-view Expand 展开面板
+然后把官网「复制示例」贴进生成的 Vue 文件。
 `);
