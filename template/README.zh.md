@@ -20,4 +20,4 @@ pnpm add-view Expand 展开面板
 
 给编程助手看的组件 API：`node_modules/lapstyle/docs/llms.txt`，再读 `docs/components/*.md`。页面内容优先用 `<ls-*>` 标签。
 
-`src/main.ts` 引入 `lapstyle/index.css`、注册 `LapstyleVue`，并对壳层 class 标记调用 `enhance(document)`。默认主题是 `data-theme="dark"`，可改成 `light`、`mint`、`sky`、`pink`、`brown`、`amber`。
+`src/main.ts` 引入 `lapstyle/index.css`、注册 `LapstyleVue`。壳层用 `<ls-menu>` / `<ls-btn-dropdown>`。页面内容优先用 `<ls-*>` 标签。默认主题是 `data-theme="dark"`，可改成 `light`、`mint`、`sky`、`pink`、`brown`、`amber`。

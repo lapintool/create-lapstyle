@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
 import { views } from "./views";
 
@@ -17,7 +17,6 @@ type ThemeId = (typeof THEMES)[number]["id"];
 
 const THEME_KEY = "lapstyle-theme";
 const theme = ref<ThemeId>("dark");
-const themeOpen = ref(false);
 const route = useRoute();
 
 const title = computed(() => {
@@ -43,12 +42,11 @@ function applyTheme(next: ThemeId) {
 
 function selectTheme(next: ThemeId) {
   applyTheme(next);
-  themeOpen.value = false;
 }
 
-function onDocPointerDown(ev: PointerEvent) {
-  const target = ev.target as HTMLElement | null;
-  if (!target?.closest(".shell__theme")) themeOpen.value = false;
+function onThemeSelect(detail: { value?: unknown }) {
+  const value = String(detail.value ?? "");
+  if (isThemeId(value)) selectTheme(value);
 }
 
 onMounted(() => {
@@ -60,11 +58,6 @@ onMounted(() => {
   }
   const current = document.documentElement.getAttribute("data-theme");
   applyTheme(isThemeId(saved) ? saved : isThemeId(current) ? current : "dark");
-  document.addEventListener("pointerdown", onDocPointerDown, true);
-});
-
-onUnmounted(() => {
-  document.removeEventListener("pointerdown", onDocPointerDown, true);
 });
 </script>
 
@@ -72,7 +65,7 @@ onUnmounted(() => {
   <div class="shell">
     <aside class="shell__side">
       <strong class="shell__brand">__APP_NAME__</strong>
-      <nav class="ls-menu fill">
+      <ls-menu fill :card="false" class="shell__nav">
         <RouterLink
           v-for="view in views"
           :key="view.name"
@@ -82,37 +75,28 @@ onUnmounted(() => {
         >
           <span class="label">{{ view.title }}</span>
         </RouterLink>
-      </nav>
+      </ls-menu>
     </aside>
     <div class="shell__main">
       <header class="shell__bar">
         <h1 class="shell__title">{{ title }}</h1>
-        <div class="ls-btn-dropdown simple shell__theme" :class="{ 'is-open': themeOpen }">
-          <button
-            type="button"
-            class="ls-btn flat rounded dense no-caps"
-            aria-label="Theme"
-            :aria-expanded="themeOpen"
-            @click.stop="themeOpen = !themeOpen"
-          >
+        <ls-btn-dropdown variant="flat" dense class="shell__theme" :label="themeLabel" @select="onThemeSelect">
+          <template #label>
             <i class="shell__swatch" :style="{ background: themeSwatch }"></i>
             {{ themeLabel }}
-            <i class="arrow" aria-hidden="true"></i>
+          </template>
+          <button
+            v-for="item in THEMES"
+            :key="item.id"
+            type="button"
+            class="item"
+            :class="{ 'is-active': theme === item.id }"
+            :data-value="item.id"
+          >
+            <i class="shell__swatch" :style="{ background: item.swatch }"></i>
+            <span class="label">{{ item.label }}</span>
           </button>
-          <nav class="ls-card ls-menu end" :hidden="!themeOpen">
-            <button
-              v-for="item in THEMES"
-              :key="item.id"
-              type="button"
-              class="item"
-              :class="{ 'is-active': theme === item.id }"
-              @click="selectTheme(item.id)"
-            >
-              <i class="shell__swatch" :style="{ background: item.swatch }"></i>
-              <span class="label">{{ item.label }}</span>
-            </button>
-          </nav>
-        </div>
+        </ls-btn-dropdown>
       </header>
       <main class="shell__page">
         <RouterView />
@@ -143,7 +127,7 @@ onUnmounted(() => {
   font-size: 15px;
 }
 
-.shell__side .ls-menu {
+.shell__nav {
   min-height: 0;
   overflow: auto;
 }
@@ -167,6 +151,11 @@ onUnmounted(() => {
 .shell__theme {
   position: relative;
   flex: 0 0 auto;
+}
+
+.shell__theme :deep(> .ls-btn) {
+  border-radius: 999px;
+  text-transform: none;
 }
 
 .shell__swatch {
@@ -202,7 +191,7 @@ onUnmounted(() => {
     border-bottom: 1px solid var(--ls-border);
   }
 
-  .shell__side .ls-menu {
+  .shell__nav {
     display: flex;
     flex: 1 1 auto;
     flex-direction: row;

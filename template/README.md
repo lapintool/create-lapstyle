@@ -20,4 +20,4 @@ This creates `src/views/ExpandView.vue` and a sidebar item. The page is empty. O
 
 Component APIs for coding agents: `node_modules/lapstyle/docs/llms.txt` (then `docs/components/*.md`). Prefer `<ls-*>` tags.
 
-`src/main.ts` imports `lapstyle/index.css`, registers `LapstyleVue`, and calls `enhance(document)` for shell chrome. Page content should use Vue tags. The default theme is `data-theme="dark"`. Other values: `light`, `mint`, `sky`, `pink`, `brown`, `amber`.
+`src/main.ts` imports `lapstyle/index.css` and registers `LapstyleVue`. The shell uses `<ls-menu>` and `<ls-btn-dropdown>`. Page content should use Vue tags. The default theme is `data-theme="dark"`. Other values: `light`, `mint`, `sky`, `pink`, `brown`, `amber`.

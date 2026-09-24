@@ -22,6 +22,16 @@
         <ls-btn color="blue" size="lg">大</ls-btn>
       </div>
     </section>
+    <section class="row">
+      <div class="row__label">按钮组</div>
+      <div class="row__body">
+        <ls-btn-group>
+          <ls-btn>One</ls-btn>
+          <ls-btn>Two</ls-btn>
+          <ls-btn>Three</ls-btn>
+        </ls-btn-group>
+      </div>
+    </section>
   </div>
 </template>
 

@@ -13,6 +13,6 @@ Rules:
 
 - Prefer `app.use(LapstyleVue)` + `import "lapstyle/index.css"` already wired in `src/main.ts`.
 - Use `v-model` / events / slots from those docs. Do not copy class-only HTML from demos.
-- `enhance(document)` in `main.ts` is only for shell chrome (sidebar menu). Page content should be Vue tags.
+- The shell already uses `<ls-menu>` and `<ls-btn-dropdown>`. Page content should be Vue tags; do not call `enhance(document)`.
 - Theme is `<html data-theme="dark|light|mint|sky|pink|brown|amber">`.
 - If the docs are not enough, then read `node_modules/lapstyle/src/vue/<Name>.vue`.
