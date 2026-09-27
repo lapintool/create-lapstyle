@@ -9,7 +9,7 @@ pnpm install
 pnpm dev
 ```
 
-打开后左侧是菜单，右侧是按钮示例。右上角主题菜单会把 `data-theme` 写到 `<html>`（`dark`、`light`、`mint`、`sky`、`pink`、`brown`、`amber`）。菜单和路由都来自 `src/views.ts`，也可以手改这一份清单。
+打开后左侧是菜单，右侧是按钮示例。右上角字号和主题菜单会把 `data-ls-scale`、`data-theme` 写到 `<html>`。字号：`sm` 14px、`md` 16px、`lg` 18px、`xl` 20px。主题：`dark`、`light`、`mint`、`sky`、`pink`、`brown`、`amber`。菜单和路由都来自 `src/views.ts`，也可以手改这一份清单。
 
 ```bash
 pnpm add-view Expand
@@ -20,4 +20,4 @@ pnpm add-view Expand 展开面板
 
 给编程助手看的组件 API：`node_modules/lapstyle/docs/llms.txt`，再读 `docs/components/*.md`。页面内容优先用 `<ls-*>` 标签。
 
-`src/main.ts` 引入 `lapstyle/index.css`、注册 `LapstyleVue`。壳层用 `<ls-menu>` / `<ls-btn-dropdown>`。页面内容优先用 `<ls-*>` 标签。默认主题是 `data-theme="dark"`，可改成 `light`、`mint`、`sky`、`pink`、`brown`、`amber`。
+`src/main.ts` 引入 `lapstyle/index.css`、注册 `LapstyleVue`。壳层用 `<ls-menu>` / `<ls-btn-dropdown>`。页面内容优先用 `<ls-*>` 标签。默认主题是 `data-theme="dark"`；字号用 `data-ls-scale`（默认浏览器 16px，与 `md` 相同）。

@@ -27,11 +27,11 @@ pnpm dev
 
 ## 生成结果
 
-- 依赖 `git+https://github.com/lapintool/lapstyle.git#v0.5.1-alpha` 和 `vue-router`
+- 依赖 `git+https://github.com/lapintool/lapstyle.git#v0.5.2-alpha` 和 `vue-router`
 - 左侧菜单、右侧按钮示例。清单在 `src/views.ts`
 - `src/main.ts` 引入 `lapstyle/index.css`，注册 `LapstyleVue`
-- 壳层用 `<ls-menu>` / `<ls-btn-dropdown>`；按钮页用 `<ls-btn>` / `<ls-btn-group>`
-- `index.html` 默认 `data-theme="dark"`
+- 壳层用 `<ls-menu>` / `<ls-btn-dropdown>` 做导航、字号和主题；按钮页用 `<ls-btn>` / `<ls-btn-group>`
+- `index.html` 默认 `data-theme="dark"`；字号用 `data-ls-scale`（`sm`/`md`/`lg`/`xl`）；正文用 `--ls-font-title|body|secondary|caption`
 - `AGENTS.md` 指引编程助手先读 `node_modules/lapstyle/docs/llms.txt`
 
 ## 加一页并贴示例

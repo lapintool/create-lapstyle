@@ -51,7 +51,7 @@
 .row__label {
   flex: 0 0 88px;
   color: var(--ls-text-dim);
-  font-size: 12px;
+  font-size: var(--ls-font-caption);
 }
 
 .row__body {

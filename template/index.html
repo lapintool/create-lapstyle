@@ -4,6 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>__APP_NAME__</title>
+    <script>
+      try {
+        var s = localStorage.getItem("lapstyle-scale");
+        if (s === "sm" || s === "md" || s === "lg" || s === "xl") {
+          document.documentElement.setAttribute("data-ls-scale", s);
+        }
+        var t = localStorage.getItem("lapstyle-theme");
+        if (
+          t === "light" ||
+          t === "dark" ||
+          t === "mint" ||
+          t === "sky" ||
+          t === "pink" ||
+          t === "brown" ||
+          t === "amber"
+        ) {
+          document.documentElement.setAttribute("data-theme", t);
+        }
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <div id="app"></div>

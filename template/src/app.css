@@ -8,4 +8,5 @@ body,
 body {
   background: var(--ls-bg);
   color: var(--ls-text);
+  font-size: var(--ls-font-body);
 }

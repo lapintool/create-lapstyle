@@ -9,7 +9,7 @@ pnpm install
 pnpm dev
 ```
 
-The app opens with a sidebar and a button page. The header’s theme menu sets `data-theme` on `<html>` (`dark`, `light`, `mint`, `sky`, `pink`, `brown`, `amber`). Menu items and routes both come from `src/views.ts`. Edit that list by hand, or add a page:
+The app opens with a sidebar and a button page. The header’s type-size and theme menus set `data-ls-scale` and `data-theme` on `<html>`. Scale: `sm` 14px, `md` 16px, `lg` 18px, `xl` 20px. Themes: `dark`, `light`, `mint`, `sky`, `pink`, `brown`, `amber`. Menu items and routes both come from `src/views.ts`. Edit that list by hand, or add a page:
 
 ```bash
 pnpm add-view Expand
@@ -20,4 +20,4 @@ This creates `src/views/ExpandView.vue` and a sidebar item. The page is empty. O
 
 Component APIs for coding agents: `node_modules/lapstyle/docs/llms.txt` (then `docs/components/*.md`). Prefer `<ls-*>` tags.
 
-`src/main.ts` imports `lapstyle/index.css` and registers `LapstyleVue`. The shell uses `<ls-menu>` and `<ls-btn-dropdown>`. Page content should use Vue tags. The default theme is `data-theme="dark"`. Other values: `light`, `mint`, `sky`, `pink`, `brown`, `amber`.
+`src/main.ts` imports `lapstyle/index.css` and registers `LapstyleVue`. The shell uses `<ls-menu>` and `<ls-btn-dropdown>`. Page content should use Vue tags. The default theme is `data-theme="dark"`. Type size is `data-ls-scale` (`sm` / `md` / `lg` / `xl`).

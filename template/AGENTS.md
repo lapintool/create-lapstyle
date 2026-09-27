@@ -15,4 +15,5 @@ Rules:
 - Use `v-model` / events / slots from those docs. Do not copy class-only HTML from demos.
 - The shell already uses `<ls-menu>` and `<ls-btn-dropdown>`. Page content should be Vue tags; do not call `enhance(document)`.
 - Theme is `<html data-theme="dark|light|mint|sky|pink|brown|amber">`.
+- Type size is `<html data-ls-scale="sm|md|lg|xl">` (root 14/16/18/20px; omit = md). Page prose: `--ls-font-title|body|secondary|caption`.
 - If the docs are not enough, then read `node_modules/lapstyle/src/vue/<Name>.vue`.
